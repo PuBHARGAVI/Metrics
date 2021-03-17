@@ -106,5 +106,32 @@ public class TestMetrics {
 		
 		assertEquals(expectedValue,actualValue);
 	}
+	
+	@Test
+	public void testToAddXMetersAndYCentimetersAndCompareWithZMeters() {
+		double scaleValue1=1;
+		double scaleValue2=100;
+		MetricTypes metricType=MetricTypes.Meter; 
+		double expectedValue=2;
+		
+		Metrics metric1=new Metrics(scaleValue1,MetricTypes.Meter);
+		Metrics metric2=new Metrics(scaleValue2,MetricTypes.Centimeter);
+		double actualValue=metric2.addTwoDifferentDimensions(metric1,metric2,metricType);
+		
+		assertEquals(expectedValue,actualValue,0.00001);
+	}
+	@Test
+	public void testToAddXCentiMetersAndYKilometersAndCompareWithZCentiMeters() {
+		double scaleValue1=200;
+		double scaleValue2=1;
+		MetricTypes metricType=MetricTypes.Centimeter; 
+		double expectedValue=100200;
+		
+		Metrics metric1=new Metrics(scaleValue1,MetricTypes.Centimeter);
+		Metrics metric2=new Metrics(scaleValue2,MetricTypes.Kilometer);
+		double actualValue=metric2.addTwoDifferentDimensions(metric1,metric2,metricType);
+		
+		assertEquals(expectedValue,actualValue,0.00001);
+	}
 }
 

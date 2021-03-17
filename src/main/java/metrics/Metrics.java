@@ -63,4 +63,11 @@ public class Metrics {
 		}
 		return false;
 	}
+	public double addTwoDifferentDimensions(Metrics metric1, Metrics metric2, MetricTypes metricType) {
+		if(metric1.dimension==MetricTypes.Meter && metric2.dimension==MetricTypes.Centimeter && metricType==MetricTypes.Meter)
+			return (metric1.scaleValue+metric2.scaleValue*0.01);
+		else if(metric1.dimension==MetricTypes.Centimeter && metric2.dimension==MetricTypes.Kilometer && metricType==MetricTypes.Centimeter)
+			return (metric1.scaleValue+metric2.scaleValue*100000);
+		return 0.00;
+	}
 }
