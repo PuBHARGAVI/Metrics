@@ -1,8 +1,5 @@
 package metrics;
-
-import metrics.ZeroValueException;
-
-public class Metrics<MetricTypes> {
+public class Metrics {
 	private double scaleValue;
 	private MetricTypes dimension;
 	private String actualExceptionMessage;
@@ -50,5 +47,20 @@ public class Metrics<MetricTypes> {
 		return false;
 	}
 	
-	
+	public boolean compareTwoDifferentDimensions(Metrics metric1, Metrics metric2) {
+		
+		System.out.println(metric2.dimension);
+		if(metric1.dimension==MetricTypes.Meter && metric2.dimension==MetricTypes.Centimeter) {
+			System.out.println("Hi");
+			if(metric1.scaleValue*100==metric2.scaleValue) {
+				return true;
+			}
+		}
+		else if(metric1.dimension==MetricTypes.Kilometer && metric2.dimension==MetricTypes.Centimeter) {
+			if(metric1.scaleValue*100000==metric2.scaleValue) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

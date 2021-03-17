@@ -1,4 +1,4 @@
-package metrics;
+
 public enum MetricTypes {
 	Centimeter("centimeter"),
     Meter("meter"),
@@ -7,7 +7,7 @@ public enum MetricTypes {
     private MetricTypes(String dimension) {
         this.dimension = dimension;
     }
-    public String getName() {
+    public String getDimension() {
         return dimension;
     }
 }
